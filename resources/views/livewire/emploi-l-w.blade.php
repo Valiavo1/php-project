@@ -78,6 +78,7 @@
              showNew = !showNew  
           }">Ajouter</button>
        </div>
+
     </div>
     <hr style="color: #c2c2c2">
     <div class="show-data">

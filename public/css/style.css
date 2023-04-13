@@ -500,9 +500,7 @@ table.tables-edt{
 
 .A4{
   width: 297mm;
-  height: 210mm;
   padding: 5px;
-  border: 1px solid red;
 
 }
 
@@ -516,4 +514,11 @@ table.tables-edt{
 
 .fix-height {
   height: 120px;
+}
+
+#export {
+  padding: 8px;
+  border-radius: 8px;
+  background-color: greenyellow;
+  color: #fff;
 }

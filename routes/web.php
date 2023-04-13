@@ -6,6 +6,7 @@ use App\Http\Controllers\EmploiDuTempsController;
 use App\Http\Controllers\ProfesseurController;
 use App\Http\Controllers\SalleController;
 use App\Http\Controllers\TableController;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,8 @@ Route::get('/classe', [ClasseController::class, 'index'])->name('classe');
 Route::get('/edt', [EmploiDuTempsController::class, 'index'])->name('edt');
 Route::get('/table', [TableController::class, 'index'])->name('table');
 
+Route::post('/doExport', [PdfController::class, 'doExportEdt'])->name('doExport');
+
 Route::post('/', [ProfesseurController::class, 'addProf'])->name('addProf');
 Route::post('/editProf', [ProfesseurController::class, 'editProf'])->name('editProf');
 
@@ -35,3 +38,4 @@ Route::post('/editSalle', [SalleController::class, 'editSalle'])->name('editSall
 
 Route::post('/edt', [EmploiDuTempsController::class, 'addEdt'])->name('addEdt');
 Route::post('/editEdt', [EmploiDuTempsController::class, 'editEdt'])->name('editEdt');
+
