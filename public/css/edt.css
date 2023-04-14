@@ -55,3 +55,12 @@ table.tables-edt{
 .fix-height {
   height: 120px;
 }
+
+.width-edt {
+  height: 120px;
+  width: 184px;
+}
+
+.full {
+  margin: auto;
+}

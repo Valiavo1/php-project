@@ -61,11 +61,7 @@ class PdfController extends Controller
         ];
 
         $pdf = PDF::loadView('pdfExport.edt', $data);
-        PDF::setOptions([
-            "defaultPaperSize" => "a4",
-            "dpi" => 150,
-            "orientation" => "landscape"
-        ]);
+        $pdf->setPaper(array(0, 0, 1123, 3980), 'portrait');
         return $pdf->stream('emploiDuTemps.pdf');
     }
 }
