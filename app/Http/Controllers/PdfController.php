@@ -60,8 +60,9 @@ class PdfController extends Controller
             'edt' => $edt
         ];
 
+        $formattedDate = $nextMonday->format("d/m/Y");
         $pdf = PDF::loadView('pdfExport.edt', $data);
-        $pdf->setPaper(array(0, 0, 1123, 3980), 'portrait');
-        return $pdf->stream('emploiDuTemps.pdf');
+        $pdf->setPaper(array(0, 0, 1000, 3500), 'portrait');
+        return $pdf->stream('emploiDuTemps du '. $formattedDate .'pdf');
     }
 }

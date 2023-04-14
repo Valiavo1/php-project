@@ -1,11 +1,15 @@
 <div x-data="{editEdt: {}, showModal: false, showNew: false}">
-    <div x-show="showNew" x-cloak  class="modal-backdrop"></div>
+    <div x-show="showNew" x-cloak x-on:click="showNew = false"  class="modal-backdrop"></div>
     <div x-show="showNew" x-cloak class="prof-form">
+        <p x-on:click="showNew = false" class="p close">X</p>
+        <h2>Ajouter nouveau emploi du temps</h2>
         <form method="POST" action="{{ route('addEdt') }}">
             @csrf
-            <input type="text" placeholder="Salle" name="salle" required>
+            <label for="salle">Salle : </label>
+            <input type="text" placeholder="Désignation de la salle" name="salle" required>
+            <label for="prof">Enseignant : </label>
             <div class="flex flex-col relative">
-                <input type="text" placeholder="Professeur" name="prof" wire:model="profPanel" required>
+                <input type="text" placeholder="Numéro de l'enseignant" name="prof" wire:model="profPanel" required>
                 @if ($profs)
                     @if ($profs->count() > 0)
                         <div class="panel">
@@ -16,6 +20,7 @@
                     @endif
                 @endif
             </div>
+            <label for="niveau">Niveau : </label>
             <select name="niveau" wire:model="niveauPanel">
                 <option value="L1">L1</option>
                 <option value="L2">L2</option>
@@ -23,8 +28,9 @@
                 <option value="M1">M1</option>
                 <option value="M2">M2</option>
             </select>
+            <label for="classe">Classe : </label>
             <div class="flex flex-col relative">
-                <input type="text" placeholder="Classe" name="classe" wire:model="classePanel" required>
+                <input type="text" placeholder="Numéro de la classe" name="classe" wire:model="classePanel" required>
                 @if ($niveauP)
                     @if ($niveauP->count() > 0)
                         <div class="panel">
@@ -35,8 +41,11 @@
                     @endif
                 @endif
             </div>
+            <label for="cours">Cours : </label>
             <input type="text" placeholder="Cours" name="cours" required>
+            <label for="date">Date : </label>
             <input type="date" name="date" required>
+            <label for="time">Horaire du début : </label>
             <input type="time" name="time" required>
             <input type="submit" value="Ajouter">
         </form>
@@ -118,12 +127,16 @@
             </table>
         </div>
     </div>
-    <div x-show="showModal" x-cloak x-on:click="showModal = false" class="modal-backdrop" x-text="JSON.stringify(editEdt)"></div>
+    <div x-show="showModal" x-cloak x-on:click="showModal = false" class="modal-backdrop"></div>
     <div x-cloak x-show="showModal" class="edit-modal prof-form">
+        <p x-on:click="showModal = false" class="p close">X</p>
+        <h2>Ajouter nouveau emploi du temps</h2>
         <form method="POST" action="{{ route('editEdt') }}">
             @csrf
             <input type="hidden" x-model="editEdt.id" name="id">
+            <label for="salle">Salle : </label>
             <input type="text" placeholder="Salle" name="salle" x-model="editEdt.salle.design" required>
+            <label for="prof">Enseignant : </label>
             <div class="flex flex-col relative">
                 <input type="text" placeholder="Professeur" name="prof" wire:model="profPanel" x-model="editEdt.id_prof" required>
                 @if ($profs)
@@ -136,6 +149,7 @@
                     @endif
                 @endif
             </div>
+            <label for="niveau">Niveau : </label>
             <select name="niveau" wire:model="niveauPanel">
                 <option value="L1">L1</option>
                 <option value="L2">L2</option>
@@ -143,6 +157,7 @@
                 <option value="M1">M1</option>
                 <option value="M2">M2</option>
             </select>
+            <label for="classe">Classe : </label>
             <div class="flex flex-col relative">
                 <input type="text" placeholder="Classe" name="classe" wire:model="classePanel" x-model="editEdt.id_classe" required>
                 @if ($niveauP)
@@ -155,8 +170,11 @@
                     @endif
                 @endif
             </div>
+            <label for="cours">Cours : </label>
             <input type="text" placeholder="Cours" name="cours" x-model="editEdt.cours" required>
+            <label for="date">Date : </label>
             <input type="date" name="date" x-model="editEdt.date" required>
+            <label for="time">Horaire du début : </label>
             <input type="time" name="time" x-model="editEdt.start" required>
             <input type="submit" value="Editer">
         </form>

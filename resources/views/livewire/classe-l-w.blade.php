@@ -1,8 +1,11 @@
 <div x-data="{editClasse: {}, showModal: false, showNew: false}">
     <div x-show="showNew" x-cloak x-on:click="showNew = false" class="modal-backdrop"></div>
     <div x-show="showNew" x-cloak class="prof-form">
+        <p x-on:click="showNew = false" class="p close">X</p>
+        <h2>Ajouter nouvelle classe</h2>
         <form method="POST" action="{{ route('addClasse') }}">
             @csrf
+            <label for="niveau">Niveau :</label>
             <select name="niveau">
                 <option value="L1">L1</option>
                 <option value="L2">L2</option>
@@ -10,7 +13,8 @@
                 <option value="M1">M1</option>
                 <option value="M2">M2</option>
             </select>
-            <input type="text" placeholder="Design" name="design" required>
+            <label for="design">Désignation : </label>
+            <input type="text" placeholder="Désignation" name="design" required>
             <input type="submit" value="Ajouter">
         </form>
     </div>
@@ -69,11 +73,14 @@
             </table>
         </div>
     </div>
-    <div x-show="showModal" x-cloak x-on:click="showNew = false" class="modal-backdrop"></div>
+    <div x-show="showModal" x-cloak x-on:click="showModal = false" class="modal-backdrop"></div>
     <div x-cloak x-show="showModal" class="edit-modal prof-form">
+        <p x-on:click="showModal = false" class="p close">X</p>
+        <h2>Editer classe</h2>
         <form method="POST" action="{{ route('editClasse') }}">
             @csrf
             <input type="hidden" x-model="editClasse.id" name="id">
+            <label for="niveau">Niveau :</label>
             <select name="niveau" x-model="editClasse.niveau">
                 <option value="L1">L1</option>
                 <option value="L2">L2</option>
@@ -81,6 +88,7 @@
                 <option value="M1">M1</option>
                 <option value="M2">M2</option>
             </select>
+            <label for="design">Désignation : </label>
             <input type="text" placeholder="design" x-model="editClasse.design" name="design" required>
             <input type="submit" value="Editer">
         </form>

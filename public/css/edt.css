@@ -41,7 +41,6 @@ table.tables-edt{
 .A4{
   width: 297mm;
   padding: 5px;
-
 }
 
 .fixer{
@@ -50,6 +49,7 @@ table.tables-edt{
 
 .centre{
   text-align: center;
+  margin-top: 40px;
 }
 
 .fix-height {

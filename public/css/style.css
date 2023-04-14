@@ -443,26 +443,22 @@ body{
 }
 
 .panel {
-  width: 350px;
+  width: 100%;
   height: auto;
-  background-color: #fff;
-  border-radius: 8px;
+  background-color: #f5f5f5;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-  padding: 8px;
   position: absolute;
-  top: 12px;
+  top: 57px;
   z-index: 9;
 }
 
 .panel p {
   padding: 8px;
-  border-radius: 12px;
   cursor: pointer;
 }
 
 .panel p:hover {
-  background-color: #bdbdbd;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  background-color: #e4e4e4;
 }
 
 .relative {
@@ -527,4 +523,49 @@ table.tables-edt{
 
 .A4 h2{
   margin-top: 12px;
+}
+
+.prof-form {
+  width: 50%;
+  height: auto;
+  max-height: 98%;
+  overflow: auto;
+  background-color: #fff;
+  padding: 25px;
+  margin: auto;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+}
+
+.prof-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.prof-form form label {
+  margin-top: 20px;
+  font-weight: 900;
+}
+
+.prof-form form input, .prof-form form select {
+  padding: 20px 14px;
+  font-size: 14px;
+  background-color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.prof-form form input[type="submit"] {
+  margin-top: 24px;
+  background-color: rgb(63, 74, 226);
+  color: #fff;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.prof-form .p {
+  width: 100%;
+  text-align: right;
+  color: #DC2639;
+  font-weight: 900;
+  cursor: pointer;
 }

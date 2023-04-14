@@ -4,7 +4,7 @@
 
 
 <div>
-  <form method="POST" action="{{route('doExport')}}">
+  <form method="POST" target="_blank" action="{{route('doExport')}}">
     @csrf
     <input id="export" type="submit" value="Exporter">
 </form>

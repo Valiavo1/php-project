@@ -1,11 +1,14 @@
 <div x-data="{editSalle: {}, free: false}">
    <div id="backdrop" class="modal-backdrop"></div>
    <div id="showNew" class="prof-form">
-       <form method="POST" action="{{ route('addSalle') }}">
-           @csrf
-           <input type="text" placeholder="Design" name="design" required>
-           <input type="submit" value="Ajouter">
-       </form>
+        <p class="p close">X</p>
+        <h2>Ajouter nouvelle salle</h2>
+        <form method="POST" action="{{ route('addSalle') }}">
+            @csrf
+            <label for="name">Désignation : </label>
+            <input type="text" placeholder="Désignation" name="design" required>
+            <input type="submit" value="Ajouter">
+        </form>
    </div>
    <div class="header-content">
       <div class="input-search">
@@ -51,12 +54,15 @@
        </div>
    </div>
    <div id="modalEdit" class="edit-modal prof-form">
-       <form method="POST" action="{{ route('editSalle') }}">
-           @csrf
-           <input type="hidden" x-model="editSalle.id" name="id">
-           <input type="text" placeholder="design" x-model="editSalle.design" name="design" required>
-           <input type="submit" value="Editer">
-       </form>
+        <p class="p close2">X</p>
+        <h2>Editer salle</h2>
+        <form method="POST" action="{{ route('editSalle') }}">
+            @csrf
+            <input type="hidden" x-model="editSalle.id" name="id">
+            <label for="name">Désignation : </label>
+            <input type="text" placeholder="design" x-model="editSalle.design" name="design" required>
+            <input type="submit" value="Editer">
+        </form>
    </div>
 </div>
 
@@ -66,6 +72,8 @@
     let showNew = document.querySelector('#showNew')
     let edit = document.querySelectorAll('.edit')
     let modalEdit = document.querySelector('#modalEdit')
+    let close = document.querySelector('.close')
+    let close2 = document.querySelector('.close2')
 
     addNew.onclick = () => {
         backdrop.style.display = "block"
@@ -80,8 +88,20 @@
 
     edit.forEach(item => {
         item.onclick = () => {
-        backdrop.style.display = "block"
-        modalEdit.style.display = "block"
-    }
+            backdrop.style.display = "block"
+            modalEdit.style.display = "block"
+        }
     });
+
+    close.onclick = () => {
+        showNew.style.display = "none"
+        backdrop.style.display = "none"
+        modalEdit.style.display = "none"
+    }
+
+    close2.onclick = () => {
+        showNew.style.display = "none"
+        backdrop.style.display = "none"
+        modalEdit.style.display = "none"
+    }
 </script>
