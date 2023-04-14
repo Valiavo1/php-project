@@ -130,7 +130,7 @@
     <div x-show="showModal" x-cloak x-on:click="showModal = false" class="modal-backdrop"></div>
     <div x-cloak x-show="showModal" class="edit-modal prof-form">
         <p x-on:click="showModal = false" class="p close">X</p>
-        <h2>Ajouter nouveau emploi du temps</h2>
+        <h2>Editer nouveau emploi du temps</h2>
         <form method="POST" action="{{ route('editEdt') }}">
             @csrf
             <input type="hidden" x-model="editEdt.id" name="id">

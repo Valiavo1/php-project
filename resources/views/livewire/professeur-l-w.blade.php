@@ -1,4 +1,4 @@
-<div x-data="{editProf: {}, showModal: false, showNew: false}">
+<div x-data="{editProf: {}, showModal: false, showNew: false, showDelete: false}">
     <div x-show="showNew" x-cloak x-on:click="showNew = false" class="modal-backdrop"></div>
     <div x-show="showNew" x-cloak class="prof-form">
         <p x-on:click="showNew = false" class="p">X</p>
@@ -64,7 +64,7 @@
     <div x-cloak x-show="showModal" class="edit-modal prof-form">
         <p x-on:click="showModal = false" class="p">X</p>
         <h2>Editer enseignant</h2>
-        <form id="addForm" method="POST" action="{{ route('addProf') }}">
+        <form id="addForm" method="POST" action="{{ route('editProf') }}">
             @csrf
             <input type="hidden" x-model="editProf.id" name="id">
             <label for="name">Nom : </label>

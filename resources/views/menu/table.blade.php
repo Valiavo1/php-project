@@ -6,6 +6,8 @@
 <div>
   <form method="POST" target="_blank" action="{{route('doExport')}}">
     @csrf
+    <label for="date">Date du lundi :</label>
+    <input class="mydate" type="date" name="date">
     <input id="export" type="submit" value="Exporter">
 </form>
 </div>

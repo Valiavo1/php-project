@@ -12,12 +12,16 @@ use DateInterval;
 
 class PdfController extends Controller
 {
-    public function doExportEdt()
+    public function doExportEdt(Request $request)
     {
-        $currentDate = new \DateTime();
-        $currentDay = $currentDate->format('N');
-        $daysUntilMonday = 7 - $currentDay + 1;
-        $nextMonday = $currentDate->modify("+$daysUntilMonday days");
+        if ($request->date) {
+            $nextMonday = new \DateTime($request->date);
+        } else {
+            $currentDate = new \DateTime();
+            $currentDay = $currentDate->format('N');
+            $daysUntilMonday = 7 - $currentDay + 1;
+            $nextMonday = $currentDate->modify("+$daysUntilMonday days");
+        }
         $date = $nextMonday->format('Y-m-d');
 
         $edt = array();
