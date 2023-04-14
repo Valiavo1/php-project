@@ -18,7 +18,7 @@ body{
   left: 0;
   height: 100%;
   width: 80px;
-  background: #DC2639;
+  background: #708D23;
   padding: 6px 14px;
   transition: all 0.5s ease;
   z-index: 99;
@@ -127,7 +127,7 @@ body{
   border-radius: 12px;
   outline: none;
   border: none;
-  background: #ff7887;
+  background: #708D23;
   padding-left: 50px;
   font-size: 18px;
   color: #fff;
@@ -164,7 +164,7 @@ body{
 
 
 .active_link{
-  background: #ff7887;
+  background: rgb(156, 173, 95);
 }
 
 .sidebar ul li svg{
@@ -336,7 +336,7 @@ body{
 
 .data-table table th, .data-table table td {
   padding: 12px;
-} 
+}
 
 .data-table table{
   border-collapse: collapse;
